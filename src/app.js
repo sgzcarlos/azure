@@ -12,6 +12,7 @@ app.set("view engine", "ejs");
 
 //middlewares
 app.use(morgan("dev"));
+app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
 //Rutas
@@ -20,7 +21,6 @@ app.use(require('./routes/entries.routes.js'))
 //404
 app.use((req, res) => {
     res.status(404).render('404');
-
 });
 
 //iniciar app
